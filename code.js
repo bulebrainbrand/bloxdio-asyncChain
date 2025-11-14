@@ -1,3 +1,6 @@
+
+
+
 AsyncChain = class{
 
   #chain
@@ -26,7 +29,7 @@ AsyncChain = class{
           }
         const func = this.#chain[0].func
         this.#chain.shift()
-        func((...arg) => this.#next(...arg),...value)
+        func((...arg) => this.#next("then",...arg),(...arg) => this.#next("catch",...arg),...value)
         break;
         }
       },100)
