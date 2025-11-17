@@ -32,7 +32,7 @@ AsyncChain = class{
         func((...arg) => this.#next("then",...arg),(...arg) => this.#next("catch",...arg),...value)
         break;
         }
-      },100)
+      },1)
     }
 
 
