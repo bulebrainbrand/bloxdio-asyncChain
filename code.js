@@ -47,11 +47,11 @@ var setTimeout = (func,time,...args) => {
     for(let i = 0;i<timeoutQueue.length;i++){
       const {runTime} = timeoutQueue[i]
       if(funcRunTime <= runTime){
-        timeoutQueue.splice(i,0,{runTime:funcRunTime,func,interval:null})
+        timeoutQueue.splice(i,0,{runTime:funcRunTime,func,interval:null,args})
         break add;
         }
       }
-    timeoutQueue.push({runTime:funcRunTime,func,interval:null,args:args})
+    timeoutQueue.push({runTime:funcRunTime,func,interval:null,args})
     }
   }
 
@@ -61,11 +61,11 @@ var setInterval = (func,interval,...args) => {
     for(let i = 0;i<timeoutQueue.length;i++){
       const {runTime} = timeoutQueue[i]
       if(funcRunTime <= runTime){
-        timeoutQueue.splice(i,0,{runTime:funcRunTime,func,interval:interval})
+        timeoutQueue.splice(i,0,{runTime:funcRunTime,func,interval,args})
         break add;
         }
       }
-    timeoutQueue.push({runTime:funcRunTime,func,interval:interval,args:args})
+    timeoutQueue.push({runTime:funcRunTime,func,interval,args})
     }
   }
 
